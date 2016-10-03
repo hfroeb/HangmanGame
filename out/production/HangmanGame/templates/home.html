@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman Game</title>
+</head>
+
+<body>
+<h1>Hangman</h1>
+<h2>You have 10 guesses!</h2>
+<form action="/guess" method="post">
+    <input type="text" placeholder="Guess a letter" name="letterGuess"/>
+    <button type="submit">Enter Letter</button>
+</form>
+<br>
+Wrong Guesses: {{wrongGuesses}}
+<br>
+Guessed letters: {{guesses}}
+<br>
+{{gameBoard}}
+</body>
+</html>
