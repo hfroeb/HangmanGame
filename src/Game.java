@@ -1,44 +1,61 @@
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
-
-import static java.lang.String.valueOf;
 
 /**
  * Created by halleyfroeb on 9/19/16.
  */
 public class Game {
-    static ArrayList<String> words = new ArrayList<>();
-    static Random randomGenerator = new Random();
-    static String randomWord;
-    static ArrayList<String> gameBoard = new ArrayList<>();
-    static ArrayList<String> randomWordArray = new ArrayList<>();
 
-
-    public Game() {
-        words.add("bicycle");
-        words.add("apple");
-        words.add("angle");
-        words.add("basis");
-        words.add("false");
-        words.add("enemy");
-        words.add("fight");
-        words.add("mayor");
-        words.add("royal");
-        words.add("sheet");
-        words.add("sleep");
-        words.add("youth");
-        words.add("vexed");
+    public static ArrayList<String> wordBank() {
+        ArrayList<String> wordBank = new ArrayList<>();
+        wordBank.add("bicycle");
+        wordBank.add("apple");
+        wordBank.add("angle");
+        wordBank.add("basis");
+        wordBank.add("false");
+        wordBank.add("enemy");
+        wordBank.add("fight");
+        wordBank.add("mayor");
+        wordBank.add("royal");
+        wordBank.add("sheet");
+        wordBank.add("sleep");
+        wordBank.add("youth");
+        wordBank.add("vexed");
+        return wordBank;
     }
 
-    public static ArrayList<String> getRandomWord() {
-        int random = randomGenerator.nextInt(words.size());
-        randomWord = words.get(random);
+    public String selectRandomWord() {
+        String randomWord;
+        Random randomGenerator = new Random();
+        ArrayList<String> wordBank = Game.wordBank();
+        int random = randomGenerator.nextInt(wordBank.size());
+        randomWord = wordBank.get(random);
+        return randomWord.toString();
+    }
 
+    public static ArrayList<String> makeGameBoard(String randomWord) {
+        ArrayList<String> gameBoard = new ArrayList<>();
         for (int i = 0; i < randomWord.length(); i++) {
-            randomWordArray.add(String.valueOf(randomWord.charAt(i)));
-            gameBoard.add(" _");
+            gameBoard.add(" _ ");
         }
         return gameBoard;
     }
+    public static ArrayList<String> makeRandomWordArray(String randomWord) {
+        ArrayList<String> randomWordArray = new ArrayList<>();
+        for (int i = 0; i < randomWord.length(); i++) {
+            randomWordArray.add(String.valueOf(randomWord.charAt(i)));
+        }
+        return randomWordArray;
+    }
+
+    public ArrayList<String> updateGameBoard(String input, ArrayList<String>gameBoard, ArrayList<String>randomWordArray) {
+        for (int i = 0; i < randomWordArray.size(); i++) {
+            String letter = randomWordArray.get(i);
+            if (letter.equalsIgnoreCase(input)) {
+                gameBoard.set(i, letter);
+            }
+        }
+        return gameBoard;
+    }
+
 }

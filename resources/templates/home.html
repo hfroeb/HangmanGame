@@ -13,10 +13,27 @@
     <button type="submit">Enter Letter</button>
 </form>
 <br>
+{{#win}}
+<h2>Congratulations! You guessed {{randomWord}}! </h2>
+{{/win}}
+{{#lost}}
+<h2>You are out of guesses! The word is {{randomWord}}. </h2>
+{{/lost}}
+{{#end}}
+<form action="/new-game" method="post">
+    <button type="submit">New Game</button>
+</form>
+{{/end}}
+<br>
+{{#error}}
+<h3>You already guessed that letter, try a different one!</h3>
+{{/error}}
+<br>
+<h1>{{gameBoard}}</h1>
+<br>
 Wrong Guesses: {{wrongGuesses}}
 <br>
 Guessed letters: {{guesses}}
 <br>
-{{gameBoard}}
 </body>
 </html>
