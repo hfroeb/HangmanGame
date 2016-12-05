@@ -47,6 +47,8 @@ public class Main {
                                 gameBoard = game.updateGameBoard(input, gameBoard, randomWordArray);
                             } else {
                                 wrongGuesses.add(input);
+//                                String hangman = game.makeHangman(wrongGuesses);
+//                                m.put("hangMan", hangman);
                             }
                         }
                     }

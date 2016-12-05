@@ -57,5 +57,10 @@ public class Game {
         }
         return gameBoard;
     }
+//    public String makeHangman(ArrayList<String>wrongGuesses){
+//        for (int i = 0; i < wrongGuesses.size(); i++){
+//
+//        }
+//    }
 
 }
